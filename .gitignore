@@ -1,0 +1,42 @@
+# Virtual muhit
+myenv/
+venv/
+.venv/
+env/
+
+# Maxfiy ma'lumotlar (token, admin ID)
+.env
+.env.*
+!.env.example
+
+# Python keshi
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Ma'lumotlar bazasi
+*.db
+*.sqlite
+*.sqlite3
+
+# Loglar
+*.log
+logs/
+
+# Paket va build fayllari
+build/
+dist/
+*.egg-info/
+
+# Test va kesh
+.pytest_cache/
+.mypy_cache/
+.coverage
+
+# Muharrir sozlamalari
+.vscode/
+.idea/
+
+# Operatsion tizim fayllari
+.DS_Store
+Thumbs.db
