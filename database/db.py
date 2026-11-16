@@ -32,7 +32,7 @@ async def init_db() -> None:
             CREATE TABLE IF NOT EXISTS services (
                 id         INTEGER PRIMARY KEY AUTOINCREMENT,
                 name       TEXT NOT NULL,
-                price      INTEGER DEFAULT NONE,
+                price      TEXT DEFAULT NULL,
                 is_active  INTEGER DEFAULT 1
             );
 
