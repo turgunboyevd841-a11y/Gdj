@@ -26,6 +26,11 @@ async def book_start(message: Message, state: FSMContext):
     services = await queries.get_services()
     kb = InlineKeyboardBuilder()
     for sid, name, price in services:
+        # Agar price raqam bo'lsa (None bo'lmasa):
+        if price:
+            text = f"{name} — {int(price):,} so'm".replace(",", " ")
+        else:
+            text = f"{name} — Kelishiladi"  # yoki shunchaki text = f"{name}"
         kb.button(
             text=f"{name} — {price:,} so'm".replace(",", " "),
             callback_data=f"srv:{sid}",
