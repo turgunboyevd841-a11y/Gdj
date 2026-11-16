@@ -65,11 +65,18 @@ async def init_db() -> None:
             await db.executemany(
                 "INSERT INTO services (name, price) VALUES (?, ?)",
                 [
-                    ("💇‍♀️ Soch turmaklash", 80_000),
-                    ("🎨 Soch bo'yash", 250_000),
-                    ("💅 Manikyur", 70_000),
-                    ("🦶 Pedikyur", 90_000),
-                    ("💄 Makiyaj", 200_000),
+                    ("💇‍♀️ Soch turmaklash"," "),
+                    ("🎨 Soch bo'yash", " "),
+                    ("💅 Manikyur", " "),
+                    ("🦶 Pedikyur", " "),
+                    ("💄 Makiyaj", " "),
+                    ("👁️ Kiprik ekish", " "),
+                    ("✨ Depilyatsiya", " "),
+                    ("👂 Quloq teshish", " "),
+                    ("🧵 Qosh va yuz terish", " "),
+                    ("💆‍♀️ Massaj (ayollar va bolalar uchun)", " "),
+                    ("🪱 Zuluk qo'yish (girudoterapiya)", " "),
+                    ("🩸 Hijoma", " "),
                 ],
             )
             await db.commit()
@@ -83,4 +90,5 @@ async def init_db() -> None:
                 )
                 await db.commit()
             except aiosqlite.OperationalError:
+                pass   # ustun allaqachon bor
                 pass   # ustun allaqachon bor
