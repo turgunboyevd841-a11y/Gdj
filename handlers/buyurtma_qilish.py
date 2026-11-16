@@ -26,12 +26,15 @@ async def book_start(message: Message, state: FSMContext):
     services = await queries.get_services()
     kb = InlineKeyboardBuilder()
     for sid, name, price in services:
-        # Narx bor-yo'qligini tekshiramiz
-        if price is not None:
-            price_str = f"{int(price):,} so'm".replace(",", " ")
-            btn_text = f"{name} — {price_str}"
+        # price None emasligini, 'NULL' so'ziga teng emasligini tekshiramiz
+        if price is not None and str(price).upper() != "NULL" and str(price).strip() != "":
+            try:
+                price_str = f"{int(price):,} so'm".replace(",", " ")
+                btn_text = f"{name} — {price_str}"
+            except (ValueError, TypeError):
+                btn_text = f"{name}"
         else:
-            btn_text = f"{name}"  # Agar narx kiritilmagan bo'lsa, faqat nomini chiqaramiz
+            btn_text = f"{name}"  # Narx bo'lmasa faqat nomini chiqaramiz
             
         kb.button(
             text=btn_text,
